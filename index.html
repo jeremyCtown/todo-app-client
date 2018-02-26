@@ -6,19 +6,19 @@
     <title>To-Do List</title>
 
     <script type="text/x-handlebars-template" id="error-template">
-        <p>{{status}}: {{statusText}}</p>
-      </script>
+      <p>{{status}}: {{statusText}}</p>
+    </script>
 
     <script type="text/x-handlebars-template" id="task-template">
-        <li class="task-item">
-          <h4>Task: {{title}}</h4>
-          <p>Desciption: {{description}}</p>
-          <p>Contact person: {{contact}}</p>
-          <p>Completion status: {{status}}</p>
-          <p>Category: {{category}}</p>
-          <p>Complete this task by {{due}}</p>
-        </li>
-      </script>
+      <li class="task-item">
+        <h4>Task: {{title}}</h4>
+        <p>Desciption: {{description}}</p>
+        <p>Contact person: {{contact}}</p>
+        <p>Completion status: {{status}}</p>
+        <p>Category: {{category}}</p>
+        <p>Complete this task by {{due}}</p>
+      </li>
+    </script>
 
   </head>
   <body>
@@ -32,7 +32,6 @@
       </section>
       <section class="task-view container">
         <h3>My Tasks</h3>
-        <!-- <section class="task-list"> -->
         <ul id="task-list"></ul>
       </section>
       </section>
