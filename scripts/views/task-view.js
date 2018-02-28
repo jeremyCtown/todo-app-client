@@ -21,12 +21,19 @@ var app = app || {};
   taskView.initAddForm = function () {
     reset();
     $('.add-view').show();
-    $('#add-form').on('submit', function (e) {
-      e.preventDefault();
+    $('#add-form').on('submit', function (event) {
+      event.preventDefault();
 
       // TODO: capture the input from the user
       // and create a new instance of a task
-
+      let task = {
+        title: event.target.title.value,
+        description: event.target.description.value,
+        category: event.target.category.value,
+        contact: event.target.contact.value,
+        status: event.target.status.value
+      }
+      module.Task.createTask(task);
     })
   }
 

@@ -34,6 +34,9 @@ var __API_URL__ = 'http://localhost:3000';
     // TODO: make an AJAX request to create a new task,
     // redirect to home page,
     // and handle errors
+    $.post(`${__API_URL__}/tasks/add`, task)
+      .then(() => page('/'))
+      .catch(errorCallback);
 
-    module.Task = Task;
+  module.Task = Task;
 })(app)
