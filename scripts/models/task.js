@@ -1,8 +1,7 @@
 'use strict';
 
 var app = {};
-// var __API_URL__ = 'http://localhost:3000';
-var __API_URL__ = 'https://ag-vs-booklist.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
 
 (function (module) {
   function errorCallback(err) {
@@ -22,13 +21,21 @@ var __API_URL__ = 'https://ag-vs-booklist.herokuapp.com';
   Task.all = [];
 
   Task.loadAll = rows => {
-    Task.all = rows.sort((a, b) => b.title - a.title).map(task => new Task(task));
+    Task.all = rows.map(task => new Task(task));
   }
 
   Task.fetchAll = callback =>
     $.get(`${__API_URL__}/tasks`)
       .then(Task.loadAll)
       .then(callback)
+      .catch(errorCallback);
+
+  Task.createTask = task =>
+    // TODO: make an AJAX request to create a new task,
+    // redirect to home page,
+    // and handle errors
+    $.post(`${__API_URL__}/tasks/add`, task)
+      .then(() => page('/'))
       .catch(errorCallback);
 
   module.Task = Task;
